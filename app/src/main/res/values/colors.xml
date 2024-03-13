@@ -1,0 +1,10 @@
+<resources>
+    <color name="colorSecondary">#FFBC4F</color>
+    <color name="colorPrimary">#21C53C</color>
+    <color name="colorText">#101617</color>
+    <color name="colorAccent">#FFA736</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorGray">#7B6F72</color>
+    <color name="Lightskin">#CA843A</color>
+    <color name="grey_but">#404541</color>
+</resources>

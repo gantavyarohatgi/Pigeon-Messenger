@@ -1,0 +1,17 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorText</item>
+
+        <!-- Other color attributes -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorText</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSurface">@color/colorWhite</item>
+        <item name="colorOnSurface">@color/colorText</item>
+        <item name="colorOnBackground">@color/colorText</item>
+
+        <item name="android:statusBarColor">@color/colorText</item>
+
+    </style>
+</resources>
