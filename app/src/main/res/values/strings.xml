@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">chatApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login">Welcome Back!</string>
+    <string name="welcome">Unlock the door to clandestine conversations in the shadows of Baker Street.</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="show_password">Show password</string>
+    <string name="confirm_details">By clicking this you agree that all the details entered are correct.</string>
+    <string name="login_btn">Sign in</string>
+    <string name="get_started">Get Started</string>
+    <string name="startscreen">Connect with people across continents</string>
+</resources>
