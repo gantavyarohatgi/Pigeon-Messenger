@@ -11,4 +11,7 @@
     <string name="login_btn">Sign in</string>
     <string name="get_started">Get Started</string>
     <string name="startscreen">Connect with people across continents</string>
+    <string name="deletereceiver">Delete Connection</string>
+    <string name="viewreceiverprofile">View Profile</string>
+    <string name="blockreceiver">Block Connection</string>
 </resources>
