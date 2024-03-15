@@ -1,6 +1,8 @@
 package com.example.chatapp.app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,14 +23,15 @@ import com.google.firebase.ktx.Firebase
              auth.createUserWithEmailAndPassword(email, password) //Now a userid should be created for the registered user
                  .addOnCompleteListener { task ->
                      if (task.isSuccessful) { //Mean that registration was successful
-                         val uid = auth.currentUser?.uid //Getting the automatically created userid if the firebase
+                         checkEmail()
+                         val uid = auth.currentUser?.uid //Getting the automatically created userid in the firebase
                          if (uid != null) {
                              // Store additional user information in Firebase Realtime Database
                              val userRef = database.child("user_table").child(uid)
                              userRef.child("fullname").setValue(name);
                              userRef.child("email").setValue(email);
 
-                             callback(true, null); //To indicate successful registeration
+                             callback(true, null); //To indicate successful registration
 
                          } else { //uid is null
 
@@ -45,4 +48,36 @@ import com.google.firebase.ktx.Firebase
 
                  }
          }
+
+         fun checkEmail(){
+             val firebaseUser = auth.currentUser
+             firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+                 if(task.isSuccessful){
+                     Toast.makeText(this,"Verification sent to your Email",Toast.LENGTH_SHORT).show()
+                     auth.signOut()
+                     finish()
+                     startActivity(Intent(this,MainActivity::class.java))
+                 }
+                 else{
+                     Toast.makeText(this,"Error occurred while sending Verification",Toast.LENGTH_SHORT).show()
+                 }
+             }
+
+         }
+         fun verifyEmail(){
+             val firebaseUser = FirebaseAuth.getInstance().currentUser
+             val verifyEmail = firebaseUser?.isEmailVerified
+             startActivity(Intent(this,MainActivity::class.java))
+             if (verifyEmail!!){
+                 finish()
+                 startActivity(Intent(this,MainActivity::class.java))
+             }
+             else{
+                 Toast.makeText(this,"Please verify your email",Toast.LENGTH_SHORT).show()
+                 auth.signOut()
+             }
+         }
+
+
+
      }
