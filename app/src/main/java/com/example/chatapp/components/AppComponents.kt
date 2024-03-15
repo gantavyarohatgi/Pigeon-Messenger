@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.sp
 import com.example.chatapp.R
 
 @Composable
-fun TextComponent(value: String,fontStyletxt: FontStyle, fweight: FontWeight, size: Int, minheight: Int, colortxt: Color) {
+fun TextComponent(value: String,fontStyletxt: FontStyle, fweight: FontWeight, size: Int, minheight: Int, colortxt: Color, alignment: TextAlign) {
     Text(
         text = value,
         modifier = Modifier
@@ -56,7 +56,7 @@ fun TextComponent(value: String,fontStyletxt: FontStyle, fweight: FontWeight, si
             fontStyle = fontStyletxt
         ),
         color = colortxt,
-        textAlign = TextAlign.Start
+        textAlign = alignment
     )
 }
 
@@ -122,7 +122,7 @@ fun EmailTextFieldComponent(LabelValue: String, img: Painter) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordTextFieldComponent(LabelValue: String, img: Painter) {
+fun PasswordTextFieldComponent(labelValue: String, img: Painter) {
     val password = remember {
         mutableStateOf("")
     }
@@ -136,7 +136,7 @@ fun PasswordTextFieldComponent(LabelValue: String, img: Painter) {
             .fillMaxWidth()
             .clip(RoundedCornerShape(4.dp)),
         singleLine = true,
-        label = { Text(text = LabelValue) },
+        label = { Text(text = labelValue) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             unfocusedBorderColor = Color.Black,
             unfocusedLabelColor = Color.Black,
@@ -193,7 +193,7 @@ fun CheckboxComponent(value: String, size: Int) {
             })
 
         TextComponent(value = value, fweight = FontWeight.Normal, size = size, minheight = 0, fontStyletxt = FontStyle.Normal ,
-            colortxt = Color.White
+            colortxt = Color.White, alignment = TextAlign.Start
         )
     }
 }
