@@ -109,7 +109,7 @@ fun SignUpScreen(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                CButton(text = "Register")
+                CButton(text = "Register" )
 
                 Row(
                     modifier = Modifier.padding(top=12.dp, bottom = 52.dp)
