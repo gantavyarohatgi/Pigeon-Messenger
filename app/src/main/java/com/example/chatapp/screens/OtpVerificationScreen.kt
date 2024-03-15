@@ -27,7 +27,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,10 +40,11 @@ import com.example.chatapp.components.CTextField
 import com.example.chatapp.ui.theme.AlegreyaFontFamily
 import com.example.chatapp.ui.theme.AlegreyaSansFontFamily
 import com.example.chatapp.R
+import com.example.chatapp.components.TextComponent
 
 @Preview
 @Composable
-fun SignUpScreen(
+fun OtpVerificationScreen(
 //    navController: NavHostController
 ) {
     Surface(
@@ -97,19 +100,21 @@ fun SignUpScreen(
                         .padding(bottom = 24.dp)
                 )
 
+                TextComponent(
+                    value = "An Otp has been sent to your email",
+                    fontStyletxt = FontStyle.Normal,
+                    fweight = FontWeight.SemiBold,
+                    size = 20,
+                    minheight = 50,
+                    colortxt = Color.White,
+                    alignment = TextAlign.Center
+                )
 
-                // Text Field
-                CTextField(hint = "Full Name", value = "" )
-
-                CTextField(hint = "Email Address", value = "" )
-
-                CTextField(hint = "Password", value = "" )
-
-                CTextField(hint = "Confirm Password", value = "" )
+                CTextField(hint = "Enter The OTP", value = "" )
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                CButton(text = "Register")
+                CButton(text = "Confirm OTP")
 
                 Row(
                     modifier = Modifier.padding(top=12.dp, bottom = 52.dp)
@@ -146,7 +151,7 @@ fun SignUpScreen(
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
-fun SignupScreenPreview() {
-    SignUpScreen()
+fun OtpVerificationScreenPreview() {
+    OtpVerificationScreen()
 }
 
