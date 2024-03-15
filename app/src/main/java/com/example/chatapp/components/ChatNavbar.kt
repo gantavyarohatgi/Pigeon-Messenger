@@ -81,6 +81,7 @@ fun ChatNavbar(
                         .align(Alignment.CenterVertically)
                         .height(30.dp)
                         .width(30.dp),
+
                 )
 
                 Image(
