@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.chatapp.components.CButton
@@ -38,11 +39,11 @@ import com.example.chatapp.components.CTextField
 import com.example.chatapp.ui.theme.AlegreyaFontFamily
 import com.example.chatapp.ui.theme.AlegreyaSansFontFamily
 import com.example.chatapp.R
+import com.example.chatapp.app.Screen
 
-@Preview
 @Composable
 fun SignUpScreen(
-//    navController: NavHostController
+    navController: NavController
 ) {
     Surface(
         color = Color(0xFF253334),
@@ -130,7 +131,7 @@ fun SignUpScreen(
                             color = Color.White
                         ),
                         modifier = Modifier.clickable {
-//                            navController.navigate("login")
+                            navController.navigate(route = Screen.SignInScreen.route)
                         }
                     )
 
@@ -147,6 +148,6 @@ fun SignUpScreen(
 @Preview(showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
 fun SignupScreenPreview() {
-    SignUpScreen()
+    SignUpScreen(rememberNavController())
 }
 

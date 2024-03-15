@@ -24,17 +24,21 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.chatapp.R
+import com.example.chatapp.app.Navigation
+import com.example.chatapp.app.Screen
 import com.example.chatapp.components.ButtonComponent
 import com.example.chatapp.components.EmailTextFieldComponent
 import com.example.chatapp.components.GreyButtonComponent
 import com.example.chatapp.components.PasswordTextFieldComponent
 import com.example.chatapp.components.TextComponent
 
-@Preview
 @Composable
-fun StartScreen() {
+fun StartScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -74,10 +78,13 @@ fun StartScreen() {
                     TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(30.dp))
-                ButtonComponent(value = stringResource(id = R.string.login_btn), Color.White)
+                ButtonComponent(value = stringResource(id = R.string.login_btn), Color.White, onClick = {
+                    navController.navigate(route = Screen.SignInScreen.route)
+                })
                 Spacer(modifier = Modifier.height(20.dp))
-                GreyButtonComponent(value = stringResource(id = R.string.get_started), Color.White)
-
+                GreyButtonComponent(value = stringResource(id = R.string.get_started), Color.White, onClick = {
+                    navController.navigate(route = Screen.SignUpScreen.route)
+                })
             }
         }
     }
@@ -86,5 +93,5 @@ fun StartScreen() {
 @Preview
 @Composable
 fun DefaultPreviewOfStartScreen() {
-    StartScreen()
+    StartScreen(rememberNavController())
 }
