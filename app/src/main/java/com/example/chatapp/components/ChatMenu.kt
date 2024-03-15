@@ -91,6 +91,19 @@ fun ChatMenu(){
                         .padding(2.dp)
                 )
 
+                Text(
+                    text = stringResource(id = R.string.blockreceiver),
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontFamily = AlegreyaFontFamily,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.White,
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(2.dp)
+                )
+
             }
         }
     }
