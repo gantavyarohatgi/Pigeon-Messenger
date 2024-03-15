@@ -20,7 +20,7 @@ fun CButton(
     onClick: () -> Unit = {},
     text: String,
 ) {
-    // make this button also resuable
+    // make this button also reusable
     Button(
         onClick = onClick,
         shape = MaterialTheme.shapes.large,

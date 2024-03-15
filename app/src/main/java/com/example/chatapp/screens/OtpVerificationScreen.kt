@@ -27,11 +27,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.chatapp.components.CButton
@@ -39,17 +40,18 @@ import com.example.chatapp.components.CTextField
 import com.example.chatapp.ui.theme.AlegreyaFontFamily
 import com.example.chatapp.ui.theme.AlegreyaSansFontFamily
 import com.example.chatapp.R
-import com.example.chatapp.app.Screen
+import com.example.chatapp.components.TextComponent
 
+@Preview
 @Composable
-fun LoginScreen(
-    navController: NavController
+fun OtpVerificationScreen(
+//    navController: NavHostController
 ) {
     Surface(
         color = Color(0xFF253334),
         modifier = Modifier.fillMaxSize()
     ) {
-        Image(painter = painterResource(id = R.drawable.loginbk),
+        Image(painter = painterResource(id = R.drawable.bkg1),
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
@@ -77,7 +79,7 @@ fun LoginScreen(
                         .align(Alignment.CenterHorizontally)
                 )
 
-                Text(text = "Sign In",
+                Text(text = "Sign Up",
                     style = TextStyle(
                         fontSize = 28.sp,
                         fontFamily = AlegreyaFontFamily,
@@ -98,18 +100,26 @@ fun LoginScreen(
                         .padding(bottom = 24.dp)
                 )
 
-                CTextField(hint = "Email Address", value = "" )
+                TextComponent(
+                    value = "An Otp has been sent to your email",
+                    fontStyletxt = FontStyle.Normal,
+                    fweight = FontWeight.SemiBold,
+                    size = 20,
+                    minheight = 50,
+                    colortxt = Color.White,
+                    alignment = TextAlign.Center
+                )
 
-                CTextField(hint = "Password", value = "" )
+                CTextField(hint = "Enter The OTP", value = "" )
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                CButton(text = "Login")
+                CButton(text = "Confirm OTP")
 
                 Row(
                     modifier = Modifier.padding(top=12.dp, bottom = 52.dp)
                 ){
-                    Text("Don't have an account? ",
+                    Text("Already have an account? ",
                         style = TextStyle(
                             fontSize = 18.sp,
                             fontFamily = AlegreyaSansFontFamily,
@@ -117,7 +127,7 @@ fun LoginScreen(
                         )
                     )
 
-                    Text("Register",
+                    Text("Sign In",
                         style = TextStyle(
                             fontSize = 18.sp,
                             fontFamily = AlegreyaSansFontFamily,
@@ -125,7 +135,7 @@ fun LoginScreen(
                             color = Color.White
                         ),
                         modifier = Modifier.clickable {
-                            navController.navigate(Screen.SignUpScreen.route)
+//                            navController.navigate("login")
                         }
                     )
 
@@ -141,7 +151,7 @@ fun LoginScreen(
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
-fun SignInScreenPreview() {
-    LoginScreen(rememberNavController())
+fun OtpVerificationScreenPreview() {
+    OtpVerificationScreen()
 }
 

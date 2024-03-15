@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.chatapp.components.CButton
@@ -38,11 +39,11 @@ import com.example.chatapp.components.CTextField
 import com.example.chatapp.ui.theme.AlegreyaFontFamily
 import com.example.chatapp.ui.theme.AlegreyaSansFontFamily
 import com.example.chatapp.R
+import com.example.chatapp.app.Screen
 
-@Preview
 @Composable
 fun SignUpScreen(
-//    navController: NavHostController
+    navController: NavController
 ) {
     Surface(
         color = Color(0xFF253334),
@@ -59,10 +60,6 @@ fun SignUpScreen(
 
 
         Box(modifier =  Modifier.fillMaxSize()){
-            /// Background Image
-
-
-            /// Content
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -77,8 +74,7 @@ fun SignUpScreen(
                     modifier = Modifier
                         .padding(top = 54.dp)
                         .height(100.dp)
-                        .align(Alignment.Start)
-                        .offset(x = (-20).dp)
+                        .align(Alignment.CenterHorizontally)
                 )
 
                 Text(text = "Sign Up",
@@ -88,10 +84,10 @@ fun SignUpScreen(
                         fontWeight = FontWeight(500),
                         color = Color.White
                     ),
-                    modifier = Modifier.align(Alignment.Start)
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
-                Text("Enter string.",
+                Text("",
                     style = TextStyle(
                         fontSize = 20.sp,
                         fontFamily = AlegreyaSansFontFamily,
@@ -110,9 +106,11 @@ fun SignUpScreen(
 
                 CTextField(hint = "Password", value = "" )
 
+                CTextField(hint = "Confirm Password", value = "" )
+
                 Spacer(modifier = Modifier.height(24.dp))
 
-                CButton(text = "Sign Up")
+                CButton(text = "Register")
 
                 Row(
                     modifier = Modifier.padding(top=12.dp, bottom = 52.dp)
@@ -133,7 +131,7 @@ fun SignUpScreen(
                             color = Color.White
                         ),
                         modifier = Modifier.clickable {
-//                            navController.navigate("login")
+                            navController.navigate(route = Screen.SignInScreen.route)
                         }
                     )
 
@@ -150,6 +148,6 @@ fun SignUpScreen(
 @Preview(showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
 fun SignupScreenPreview() {
-    SignUpScreen()
+    SignUpScreen(rememberNavController())
 }
 
