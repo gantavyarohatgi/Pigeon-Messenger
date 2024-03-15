@@ -199,9 +199,9 @@ fun CheckboxComponent(value: String, size: Int) {
 }
 
 @Composable
-fun ButtonComponent(value: String,colortxt: Color) {
+fun ButtonComponent(value: String, colortxt: Color, onClick: () -> Unit = {}) {
     Button(
-        onClick = {},
+        onClick = { onClick() },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),
@@ -217,13 +217,8 @@ fun ButtonComponent(value: String,colortxt: Color) {
                 .background(
                     brush = Brush.horizontalGradient(
                         listOf(
-//                            colorResource(id = R.color.colorSecondary),
-//                            colorResource(id = R.color.colorPrimary),
                             colorResource(id = R.color.colorPrimary),
                             colorResource(id = R.color.colorPrimary),
-
-//                            Color.Red,
-//                            Color.Red
                         )
                     ),
                     shape = RoundedCornerShape(50.dp)
@@ -245,9 +240,9 @@ fun ButtonComponent(value: String,colortxt: Color) {
 }
 
 @Composable
-fun GreyButtonComponent(value: String,colortxt: Color) {
+fun GreyButtonComponent(value: String, colortxt: Color, onClick: () -> Unit = {}) {
     Button(
-        onClick = {},
+        onClick = { onClick() },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),

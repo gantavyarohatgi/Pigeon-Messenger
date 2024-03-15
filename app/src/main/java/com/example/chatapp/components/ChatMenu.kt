@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFrom
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
@@ -35,6 +36,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.ModifierLocal
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -52,5 +54,63 @@ import com.example.chatapp.R
 
 @Composable
 fun ChatMenu(){
+    Surface(
+        color = Color(0xFF253334),
+        modifier = Modifier.height(100.dp).width(110.dp),
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column (
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(vertical = 2.dp, horizontal = 2.dp)
+            ) {
+                Text(
+                    text = stringResource(id = R.string.viewreceiverprofile),
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontFamily = AlegreyaFontFamily,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.White,
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(2.dp)
+                )
 
+                Text(
+                    text = stringResource(id = R.string.deletereceiver),
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontFamily = AlegreyaFontFamily,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.White,
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(2.dp)
+                )
+
+                Text(
+                    text = stringResource(id = R.string.blockreceiver),
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontFamily = AlegreyaFontFamily,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.White,
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(2.dp)
+                )
+
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ChatMenuPreview(){
+    ChatMenu()
 }
