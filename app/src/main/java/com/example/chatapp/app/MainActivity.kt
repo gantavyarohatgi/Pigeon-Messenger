@@ -8,6 +8,7 @@ import com.example.chatapp.screens.LoginScreen
 import com.example.chatapp.screens.StartScreen
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent{
